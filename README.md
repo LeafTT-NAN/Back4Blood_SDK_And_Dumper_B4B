@@ -1,62 +1,25 @@
+# Back 4 Blood SDK and Dumper for B4B
 
-# Dumper-7
+#### BuildDate: 9/12/2025（Maybe this can work forever due to they gave up this game）
+####Target game version:Patch for MAY 2024 UPDATE
+####SDK IS NOT CHECKED（im a ue4 beginner lol）but should be able to work on this patch
+### 
+##About The Dumper
 
-SDK Generator for all Unreal Engine games. Supported versions are all of UE4 and UE5.
+####The Dumper is from [Encryqed's Dumper-7](https://github.com/Encryqed/Dumper-7),But the latest version has a [issues](https://github.com/Encryqed/Dumper-7/issues/292) so you have to use [the old version of the dumper](https://github.com/Encryqed/Dumper-7/tree/a1c081109d3191eaba140f6f26f2daf9fd102b7c) and override GNames manually
+##How To Use Dumper
+####I have updated a dumper that already modified and ready to use
+######1. Download dumper and build it
+######2. Start your game and wait to MainMenu
+######3. Inject dll into Back 4 Blood and wait for generate sdk(It will generate in “C:\Dumper-7\”, this can be modified manually before build)
+######4. When it outputs “Generating SDK took (XXXXXms)”, you can close the dumper and working on you sdk:）
+### 
+##Bypass Anti-Cheat(B4B)
+######1. Open your game directory and rename "start_protected_game.exe" to other(e.g start_protected_game1.exe)
+######2. Download "bypass.exe" to your game directory and rename it to "start_protected_game.exe"
+######3. Start your game and enjoy(Offline Only!)
+######4. To restore it ,delete bypass.exe and change the original anti cheating file name back to “start_protected_game.exe”
 
-## How to use
 
-- Compile the dll in x64-Release
-- Inject the dll into your target game
-- The SDK is generated into the path specified by `Settings::SDKGenerationPath`, by default this is `C:\\Dumper-7`
-- **See [UsingTheSDK](UsingTheSDK.md) for a guide to get started, or to migrate from an old SDK.**
-## Support Me
 
-KoFi: https://ko-fi.com/fischsalat \
-Patreon: https://patreon.com/user?u=119629245
-## Changelog
 
-### Summary:
-- Added TUObjectArrayWrapper which automatically initializes `GObjects` the first time it's accessed
-- Added predefined member **ULevel::Actors** to the SDK
-- Added support for more Properties
-- Functions with `EFunctionFlags::Static` are now automatically called on the classes' DefaultObject
-- Fixed name-collisions between classes/structs, between enums, between members/functions, and between packages
-- Fixed cyclic dependencies
-- Fixed incorrect size/alignment on classes
-  
-You can  find the full changelog for the new GeneratorRewrite in [Changelog.md](Changelog.md).
-
-## Overriding Offsets
-
-- ### Only override any offsets if the generator doesn't find them by itself
-- All overrides are made in **Generator::InitEngineCore()** inside of **Generator.cpp**
-
-- GObjects
-  ```cpp
-  ObjectArray::Init(/*GObjectsOffset*/, /*ChunkSize*/, /*bIsChunked*/);
-  ```
-  ```cpp
-  /* Make sure only to use types which exist in the sdk (eg. uint8, uint64) */
-  InitObjectArrayDecryption([](void* ObjPtr) -> uint8* { return reinterpret_cast<uint8*>(uint64(ObjPtr) ^ 0x8375); });
-  ```
-- FName::AppendString
-  ```cpp
-  FName::Init(/*FName::AppendStringOffset*/);
-  ```
-- ProcessEvent
-  ```cpp
-  Off::InSDK::InitPE(/*PEIndex*/);
-  ```
-
-## Issues
-
-If you have any issues using the Dumper, please create an Issue on this repository\
-and explain the problem **in detail**.
-
-- Should your game be crashing while dumping, attach Visual Studios' debugger to the game and inject the Dumper-7.dll in debug-configuration.
-Then include screenshots of the exception causing the crash, a screenshot of the callstack, as well as the console output.
-
-- Should there be any compiler-errors in the SDK please send screenshots of them. Please note that **only build errors** are considered errors, as Intellisense often reports false positives.
-Make sure to always send screenshots of the code causing the first error, as it's likely to cause a chain-reaction of errors.
-
-- Should your own dll-project crash, verify your code thoroughly to make sure the error actually lies within the generated SDK.
