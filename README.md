@@ -7,7 +7,7 @@
 ## About The Dumper
 
 #### The Dumper is from [Encryqed's Dumper-7](https://github.com/Encryqed/Dumper-7),But the latest version has a [issues](https://github.com/Encryqed/Dumper-7/issues/292) so you have to use [the old version of the dumper](https://github.com/Encryqed/Dumper-7/tree/a1c081109d3191eaba140f6f26f2daf9fd102b7c) and override GNames manually
-## How To Use Dumper
+## How To Use Dumper(B4B)
 #### I have updated a dumper that already modified and ready to use
 ###### 1. Download dumper and build it
 ###### 2. Start your game and wait to MainMenu
