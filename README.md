@@ -18,7 +18,7 @@
 ###### 1. Open your game directory and rename "start_protected_game.exe" to other(e.g start_protected_game1.exe)
 ###### 2. Download "bypass.exe" to your game directory and rename it to "start_protected_game.exe"
 ###### 3. Start your game and enjoy(Offline Only!)
-###### 4. To restore it ,delete bypass.exe and change the original anti cheating file name back to “start_protected_game.exe”
+###### 4. To restore it , delete bypass.exe and change the original anti-cheat file name back to “start_protected_game.exe”
 
 
 
