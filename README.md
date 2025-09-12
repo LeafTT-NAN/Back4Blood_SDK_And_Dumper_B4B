@@ -19,7 +19,10 @@
 ###### 2. Download "bypass.exe" to your game directory and rename it to "start_protected_game.exe"
 ###### 3. Start your game and enjoy(Offline Only!)
 ###### 4. To restore it , delete bypass.exe and change the original anti-cheat file name back to “start_protected_game.exe”
-
-
+## Current Offsets
+- GName: 0x6986C80
+- GWorld: 0x69737B0
+- GObjects: 0x667C778
+- GObjects Xor Key: 0x8375
 
 
