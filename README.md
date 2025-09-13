@@ -22,7 +22,7 @@
 ## Current Offsets
 - GName: 0x6986C80
 - GWorld: 0x69737B0
-- GObjects: 0x667C778
+- FChunkedFixedUObjectArray:0x667C768
 - GObjects Xor Key: 0x8375
 
 
